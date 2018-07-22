@@ -178,7 +178,7 @@ class MainPage extends Component {
             superHeros.map((hero, index) => (
               <Grid item sm={3} xs={6}>
                 <Paper>
-                  <p style={{ padding: 1 }}> </p>
+                 
                   <CardMedia
                     className="cardTitle, photoCard"
                     title={hero.name}

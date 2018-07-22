@@ -7,6 +7,8 @@ class App extends Component {
     super(props);
     this.state = {};
   }
+
+  //rechargement de la page
   update(){
     window.location.reload();
   }
