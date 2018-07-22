@@ -1,0 +1,83 @@
+body {
+  position: relative;
+  background-image: url("https://images.pexels.com/photos/1093155/pexels-photo-1093155.jpeg?cs=srgb&dl=deadpool-marvel-movie-1093155.jpg&fm=jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.cardsContainer {
+  padding: 0 20px !important;
+  font-family: "Courier New", Courier, monospace;
+  font-size: large;
+}
+h3 {
+  font-family: "Courier New", Courier, monospace;
+  color: black;
+  font-size: x-large;
+  text-align: center;
+  height: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h3:hover {
+  transform: scale(1.1);
+}
+
+header {
+  background-color: red;
+  color: white;
+  text-align: center;
+}
+
+.logo {
+  width: auto;
+  height: 10vh;
+}
+
+.photoCard {
+  width: auto;
+  height: 50vh;
+}
+.textCard {
+  text-align: center;
+}
+span {
+  font-weight: bolder;
+}
+li {
+  text-align: center;
+  list-style: none;
+}
+
+ul {
+  padding: 0;
+}
+
+.loading {
+  padding: 19vh 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.moreDatas {
+  height: 150px;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.buttonJustFav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+
+footer {
+  background: linear-gradient(to right, transparent, black, transparent);
+  color: white;
+  text-align: center;
+}
