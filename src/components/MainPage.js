@@ -42,6 +42,7 @@ class MainPage extends Component {
         19: false
       },
       favorite: [],
+      favoriteArr: [],
       justFavorite: false
     };
     this.getData = this.getData.bind(this);
@@ -101,33 +102,36 @@ class MainPage extends Component {
   }
 
   //ajout en favoris
-  favorite(id) {
+  favorite(character) {
     let arr = this.state.favorite;
-    arr.push(id);
-    this.setState({ favorite: arr });
+    let arrList = this.state.favoriteArr
+    arr.push(character.id);
+    arrList.push(character)
+    this.setState({ favorite: arr , favoriteArr : arrList });
+  }
+
+  deleteCharacter(arr, index){
+    return [
+      ...arr.slice(0, index),
+      ...arr.slice(index + 1, arr.length)
+    ]
   }
 
   //enlever un favori
-  unfavorite(id) {
+  unfavorite(character) {
     let arr = this.state.favorite;
-    let deleteIt = arr.indexOf(id);
-    let newArr = [
-      ...arr.slice(0, deleteIt),
-      ...arr.slice(deleteIt + 1, arr.length)
-    ];
-    this.setState({ favorite: newArr });
+    let arrList = this.state.favoriteArr;
+    let deleteIt = arr.indexOf(character.id);
+    let newArr = this.deleteCharacter(arr, deleteIt);
+    let newArrListe = this.deleteCharacter(arrList, deleteIt);
+    this.setState({ favorite: newArr, favoriteArr: newArrListe });
   }
   //filtrer ou non suivant les favoris
   justFavorite() {
     this.setState({ justFavorite: !this.state.justFavorite }, () => {
-      let arrFilter;
-      if (this.state.favorite.length > 0) {
-        arrFilter = this.state.characters.filter(character =>
-          this.state.favorite.includes(character.id)
-        );
-      } 
+      
       this.state.justFavorite
-        ? this.setState({ characters: arrFilter })
+        ? this.setState({ characters: this.state.favoriteArr })
         : this.getData();
     });
   }
@@ -136,11 +140,11 @@ class MainPage extends Component {
     const superHeros = this.state.characters;
     return (
       <div>
-        <div className="buttonJustFav">
+        <div className="buttons">
           <Button
             onClick={() => this.moreOrLess("-")}
             variant="contained"
-            color="primary"
+            color="secondary"
           >
             <LeftArrow />+5
           </Button>
@@ -215,7 +219,7 @@ class MainPage extends Component {
                       </div>
                     ) : this.state.favorite.includes(hero.id) ? (
                       <Button
-                        onClick={() => this.unfavorite(hero.id)}
+                        onClick={() => this.unfavorite(hero)}
                         variant="fab"
                         color="primary"
                       >
@@ -223,7 +227,7 @@ class MainPage extends Component {
                       </Button>
                     ) : (
                       <Button
-                        onClick={() => this.favorite(hero.id)}
+                        onClick={() => this.favorite(hero)}
                         variant="fab"
                         color="primary"
                         disabled={this.state.favorite.length >= 5}
