@@ -14,8 +14,7 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <div>
+    return <div>
         <header>
           <img onClick={this.update} className="logo" src={logo} alt="logo" />
         </header>
@@ -23,10 +22,13 @@ class App extends Component {
         <MainPage />
 
         <footer>
-          <p>Created by Vincent Ballut</p>
+          <p>
+            Created by Vincent Ballut for <a href="https://www.peaks.fr/home/">
+              Peaks
+            </a>
+          </p>
         </footer>
-      </div>
-    );
+      </div>;
   }
 }
 
