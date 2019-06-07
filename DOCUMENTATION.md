@@ -1,4 +1,3 @@
-Client : Peaks (Lyon 69)
 Developper : Vincent Ballut
 
 1- Presentation
